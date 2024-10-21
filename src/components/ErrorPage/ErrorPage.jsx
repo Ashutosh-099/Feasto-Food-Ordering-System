@@ -1,6 +1,8 @@
 const ErrorPage = () => {
     return(
-        <h1>Error Page</h1>
+        <div className="text-center">
+            <h1>Error, 404 Not Found</h1>
+        </div>
     );
 }
 

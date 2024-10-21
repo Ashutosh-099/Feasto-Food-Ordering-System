@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CartLogo from "../../../public/assets/cart.svg";
 
 const Header = () => {
@@ -13,16 +14,23 @@ const Header = () => {
                 </div>
             </a>
             {/* Menu */}
-            <nav role="navigation" className="flex items-center text-xl">
-                <span className="px-4 m-2">Home</span>
-                <span className="px-4 m-2">About Us</span>
-                <span className="px-4 m-2">Help</span>
-                <span className="px-4 m-2">Home</span>
-            </nav>
-            {/* Cart */}
-            <div className="flex item-center px-4 p-2 cursor-pointer bg hover:bg-gray-300/25 active:bg-gray-300">
-                <img src={CartLogo} alt="cart-logo" />
-                <span className="m-2 text-xl">Cart</span>
+            <div className="flex">
+                <nav role="navigation" className="flex items-center text-xl">
+                    <Link to="/">
+                        <span className="px-4 m-2 hover:text-[#00a36c] transition duration-150">Home</span>
+                    </Link>
+                    <Link to="/about-us">
+                        <span className="px-4 m-2 hover:text-[#00a36c] transition duration-150">About Us</span>
+                    </Link>
+                    <Link to="https://ashutosh-agarwal.vercel.app/">
+                        <span className="px-4 m-2 hover:text-[#00a36c] transition duration-150">Profile</span>
+                    </Link>
+                </nav>
+                {/* Cart */}
+                <div className="flex item-center px-4 p-2 cursor-pointer bg hover:bg-gray-300/25 active:bg-gray-300">
+                    <img src={CartLogo} alt="cart-logo" />
+                    <span className="m-2 text-xl">Cart</span>
+                </div>
             </div>
         </div>
     );
