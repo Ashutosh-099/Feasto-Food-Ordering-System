@@ -9,10 +9,10 @@ const CuisineComponent = (props) => {
         <div id="cuisine-container" className="mx-24">
             {resData ? (
                 <>
-                    <p className="p-4 text-[1.6rem] font-bold">Any cuisines you like?</p>
+                    <p className="p-4 text-[1.6rem] font-bold">Any dishes you like?</p>
                     <div id="cuisine-card" className="flex p-4 overflow-x-auto">
                         {resData?.card?.card?.imageGridCards?.info.map(cuisine => (
-                            <img key={cuisine.id} src={CUISINE_IMG_URL + cuisine.imageId} alt="cuisine-card" className="w-40 mx-4" />
+                            <img key={cuisine.id} src={CUISINE_IMG_URL + cuisine.imageId} alt="cuisine-card" className="w-40 mx-4 cursor-pointer" />
                         ))}
 
                     </div>
