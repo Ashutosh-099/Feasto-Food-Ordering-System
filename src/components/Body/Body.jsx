@@ -1,23 +1,11 @@
-import CuisineComponent from "../CuisineComponent/CuisineComponent";
-import { useEffect, useState } from "react";
-import { RESTAURANT_DATA_URL } from "../../utils/common";
-import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import { Skeleton } from "@mui/material";
+import CuisineComponent from "../CuisineComponent/CuisineComponent";
+import RestaurantCard from "../RestaurantCard/RestaurantCard";
+import { useRestaurantDetails } from "../../utils/useRestaurantDetails";
 
 const Body = () => {
-
-    const [resData, setResData] = useState(undefined);
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        const response = await fetch(RESTAURANT_DATA_URL);
-        const resData = await response.json();
-        console.log(resData["data"]["cards"]);
-        setResData(resData["data"]["cards"]);
-    }
+    {/* Single responsibility principle */}
+    const resData = useRestaurantDetails();
 
     return (
         <div id="body-container" className="pb-4">

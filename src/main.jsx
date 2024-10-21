@@ -1,11 +1,13 @@
-import { StrictMode } from 'react'
+import { lazy, StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import ErrorPage from './components/ErrorPage/ErrorPage';
-import Body from './components/Body/Body';
-import AboutUs from './components/AboutUs/AboutUs';
 import './index.css'
+
+{/* Lazy Loading / Chunking */ }
+const Body = lazy(() => import("./components/Body/Body"));
+const AboutUs = lazy(() => import("./components/AboutUs/AboutUs"));
 
 const browseRouter = createBrowserRouter([
   {
@@ -14,11 +16,11 @@ const browseRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />
+        element: <Suspense fallback={<h1>Please wait...</h1>}><Body /></Suspense>
       },
       {
         path: "/about-us",
-        element: <AboutUs />
+        element: <Suspense fallback={<h1>Please wait...</h1>}><AboutUs /></Suspense>
       }
     ],
     errorElement: <ErrorPage />,
