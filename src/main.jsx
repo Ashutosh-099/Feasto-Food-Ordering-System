@@ -2,6 +2,7 @@ import { lazy, StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
+import Restaurant from './components/Restaurant/Restaurant';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import './index.css'
 
@@ -21,6 +22,10 @@ const browseRouter = createBrowserRouter([
       {
         path: "/about-us",
         element: <Suspense fallback={<h1>Please wait...</h1>}><AboutUs /></Suspense>
+      },
+      {
+        path: "/restaurant/:resId",
+        element: <Restaurant />
       }
     ],
     errorElement: <ErrorPage />,

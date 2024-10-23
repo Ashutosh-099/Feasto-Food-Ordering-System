@@ -3,6 +3,7 @@ import CuisineComponent from "../CuisineComponent/CuisineComponent";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import { useRestaurantDetails } from "../../utils/useRestaurantDetails";
 import withOpenCard from "../RestaurantCard/withOpenCard";
+import { Link } from "react-router-dom";
 
 const Body = () => {
     {/* Single responsibility principle */ }
@@ -26,13 +27,13 @@ const Body = () => {
                         </>
                     )}
                     {resData?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants.map(restaurant => (
-                        <>
+                        <Link to={"/restaurant/" + restaurant?.info.id} key={restaurant?.info.id}>
                             {restaurant?.info.isOpen ? (
                                 <RestaurantCardWithOpen id={restaurant?.info.id} imageURL={restaurant?.info?.cloudinaryImageId} name={restaurant?.info?.name} rating={restaurant?.info?.avgRating} avgTime={restaurant?.info?.sla?.slaString} cuisines={restaurant?.info.cuisines} price={restaurant?.info?.costForTwo} />
                             ) : (
                                 <RestaurantCard id={restaurant?.info.id} imageURL={restaurant?.info?.cloudinaryImageId} name={restaurant?.info?.name} rating={restaurant?.info?.avgRating} avgTime={restaurant?.info?.sla?.slaString} cuisines={restaurant?.info.cuisines} price={restaurant?.info?.costForTwo} />
                             )}
-                        </>
+                        </Link>
                     ))}
                 </div>
             </div>
