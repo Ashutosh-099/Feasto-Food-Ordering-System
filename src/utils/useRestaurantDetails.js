@@ -11,6 +11,7 @@ export const useRestaurantDetails = () => {
     const fetchRestaurantData = async () => {
         const response = await fetch(RESTAURANT_DATA_URL);
         const data = await response.json();
+        console.log(data["data"]["cards"]);
         setResData(data["data"]["cards"]);
     }
 

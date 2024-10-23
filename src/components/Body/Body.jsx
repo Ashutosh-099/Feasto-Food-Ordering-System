@@ -2,10 +2,12 @@ import { Skeleton } from "@mui/material";
 import CuisineComponent from "../CuisineComponent/CuisineComponent";
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import { useRestaurantDetails } from "../../utils/useRestaurantDetails";
+import withOpenCard from "../RestaurantCard/withOpenCard";
 
 const Body = () => {
-    {/* Single responsibility principle */}
+    {/* Single responsibility principle */ }
     const resData = useRestaurantDetails();
+    const RestaurantCardWithOpen = withOpenCard(RestaurantCard);
 
     return (
         <div id="body-container" className="pb-4">
@@ -24,7 +26,13 @@ const Body = () => {
                         </>
                     )}
                     {resData?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants.map(restaurant => (
-                        <RestaurantCard key={restaurant?.info.id} imageURL={restaurant?.info?.cloudinaryImageId} name={restaurant?.info?.name} rating={restaurant?.info?.avgRating} avgTime={restaurant?.info?.sla?.slaString} cuisines={restaurant?.info.cuisines} price={restaurant?.info?.costForTwo} />
+                        <>
+                            {restaurant?.info.isOpen ? (
+                                <RestaurantCardWithOpen id={restaurant?.info.id} imageURL={restaurant?.info?.cloudinaryImageId} name={restaurant?.info?.name} rating={restaurant?.info?.avgRating} avgTime={restaurant?.info?.sla?.slaString} cuisines={restaurant?.info.cuisines} price={restaurant?.info?.costForTwo} />
+                            ) : (
+                                <RestaurantCard id={restaurant?.info.id} imageURL={restaurant?.info?.cloudinaryImageId} name={restaurant?.info?.name} rating={restaurant?.info?.avgRating} avgTime={restaurant?.info?.sla?.slaString} cuisines={restaurant?.info.cuisines} price={restaurant?.info?.costForTwo} />
+                            )}
+                        </>
                     ))}
                 </div>
             </div>
