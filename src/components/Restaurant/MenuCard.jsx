@@ -7,7 +7,7 @@ const MenuCard = (props) => {
     return (
         <div className='w-full bg-white my-4 p-3 rounded-xl cursor-pointer' onClick={updateIndex}>
             <div className='flex justify-between align-middle'>
-                <p className='font-bold text-lg'>{title} (4) </p>
+                <p className='font-bold text-lg'>{title} ({items.length}) </p>
                 {showIndex ? <KeyboardArrowUpIcon onClick={updateIndex} /> : <KeyboardArrowDownIcon onClick={updateIndex} />}
             </div>
             {showIndex && <>{
