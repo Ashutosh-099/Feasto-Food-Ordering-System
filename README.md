@@ -22,4 +22,4 @@ The application incorporates several fundamental concepts and features, includin
 11. **Higher Order components**
 12. **Customize Accordian**
 13. **Controlled and un-controlled components**
-14. **Props drilling**"
+14. **Props drilling**
