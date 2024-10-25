@@ -7,11 +7,19 @@ export const useRestaurantDetails = () => {
     useEffect(() => {
         fetchRestaurantData();
     }, []);
-    
+
     const fetchRestaurantData = async () => {
-        const response = await fetch(RESTAURANT_DATA_URL);
-        const data = await response.json();
-        setResData(data["data"]["cards"]);
+        try {
+            const response = await fetch(RESTAURANT_DATA_URL);
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            const data = await response.json();
+            setResData(data["data"]["cards"]);
+        } catch (error) {
+            console.error(error);
+        }
+
     }
 
     return resData;
