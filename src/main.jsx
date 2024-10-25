@@ -5,6 +5,7 @@ import App from './App.jsx'
 import Restaurant from './components/Restaurant/Restaurant';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import './index.css'
+import CuisineCollection from './components/CuisineCollection/CuisineCollection.jsx';
 
 {/* Lazy Loading / Chunking */ }
 const Body = lazy(() => import("./components/Body/Body"));
@@ -26,6 +27,10 @@ const browseRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <Restaurant />
+      },
+      {
+        path: "/collections/:collectionId/:tag",
+        element: <CuisineCollection />
       }
     ],
     errorElement: <ErrorPage />,

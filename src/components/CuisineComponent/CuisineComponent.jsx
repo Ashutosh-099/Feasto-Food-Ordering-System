@@ -1,5 +1,7 @@
-import { Skeleton } from "@mui/material";
+import { ImageList, ImageListItem, Skeleton } from "@mui/material";
+import { Link } from "react-router-dom";
 import { CUISINE_IMG_URL } from "../../utils/common";
+import { getDishURL } from "../../utils/helper";
 
 const CuisineComponent = (props) => {
 
@@ -11,10 +13,15 @@ const CuisineComponent = (props) => {
                 <>
                     <p className="p-4 text-[1.6rem] font-bold">Any dishes you like?</p>
                     <div id="cuisine-card" className="flex p-4 overflow-x-auto">
-                        {resData?.card?.card?.imageGridCards?.info.map(cuisine => (
-                            <img key={cuisine.id} src={CUISINE_IMG_URL + cuisine.imageId} alt="cuisine-card" className="w-40 mx-4 cursor-pointer" />
-                        ))}
-
+                        <ImageList cols={resData?.card?.card?.imageGridCards?.info.length} gap={16} rowHeight={200} style={{ width: "100%" }}>
+                            {resData?.card?.card?.imageGridCards?.info.map(cuisine => (
+                                <ImageListItem key={cuisine.id} sx={{ width: 160, marginY: 2 }}>
+                                    <Link to={"/collections/" + getDishURL(cuisine.entityId)}>
+                                        <img src={CUISINE_IMG_URL + cuisine.imageId} alt="cuisine-card" />
+                                    </Link>
+                                </ImageListItem>
+                            ))}
+                        </ImageList>
                     </div>
                 </>
             ) : (
