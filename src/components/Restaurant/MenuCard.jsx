@@ -12,7 +12,7 @@ const MenuCard = (props) => {
             </div>
             {showIndex && <>{
                 items.map(item => (
-                    <ItemCard key={item.card.info.id} name={item.card.info.name} description={item.card.info.description} price={item.card.info.price} imageURL={item.card.info.imageId} />
+                    <ItemCard key={item.card.info.id} name={item.card.info.name} description={item.card.info.description} price={item.card.info.price ? item.card.info.price : item.card.info.defaultPrice} imageURL={item.card.info.imageId} />
                 ))
             }</>}
 
