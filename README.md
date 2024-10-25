@@ -20,5 +20,6 @@ The application incorporates several fundamental concepts and features, includin
 9. **Custom Hooks:** Creating reusable logic with custom hooks to encapsulate component logic.
 10. **Standard Folder Structure:** Following a consistent folder structure to organize the code for better scalability and maintainability.
 11. **Higher Order components**
-12. **Controlled and un-controlled components**
-13. **Props drilling**"
+12. **Customize Accordian**
+13. **Controlled and un-controlled components**
+14. **Props drilling**"
