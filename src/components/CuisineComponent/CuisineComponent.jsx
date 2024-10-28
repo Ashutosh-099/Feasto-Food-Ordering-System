@@ -6,7 +6,6 @@ import { getDishURL } from "../../utils/helper";
 const CuisineComponent = (props) => {
 
     const { resData } = props;
-
     return (
         <div id="cuisine-container" className="mx-24">
             {resData ? (
@@ -16,7 +15,7 @@ const CuisineComponent = (props) => {
                         <ImageList cols={resData?.card?.card?.imageGridCards?.info.length} gap={16} rowHeight={200} style={{ width: "100%" }}>
                             {resData?.card?.card?.imageGridCards?.info.map(cuisine => (
                                 <ImageListItem key={cuisine.id} sx={{ width: 160, marginY: 2 }}>
-                                    <Link to={"/collections/" + getDishURL(cuisine.entityId)}>
+                                    <Link to={"/collections/" + getDishURL(cuisine.entityId) + "/" + cuisine.action.text}>
                                         <img src={CUISINE_IMG_URL + cuisine.imageId} alt="cuisine-card" />
                                     </Link>
                                 </ImageListItem>

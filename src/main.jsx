@@ -29,7 +29,7 @@ const browseRouter = createBrowserRouter([
         element: <Restaurant />
       },
       {
-        path: "/collections/:collectionId/:tag",
+        path: "/collections/:collectionId/:tag/:name",
         element: <CuisineCollection />
       }
     ],
