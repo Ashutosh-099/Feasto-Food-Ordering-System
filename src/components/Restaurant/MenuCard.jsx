@@ -5,7 +5,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 const MenuCard = (props) => {
     const { title, items, showIndex, updateIndex } = props;
     return (
-        <div className='w-full bg-white my-4 p-3 rounded-xl cursor-pointer' onClick={updateIndex}>
+        <div className='w-full bg-white my-4 p-3 rounded-xl cursor-pointer'>
             <div className='flex justify-between align-middle'>
                 <p className='font-bold text-lg'>{title} ({items.length}) </p>
                 {showIndex ? <KeyboardArrowUpIcon onClick={updateIndex} /> : <KeyboardArrowDownIcon onClick={updateIndex} />}
