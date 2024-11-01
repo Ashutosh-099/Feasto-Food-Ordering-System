@@ -23,3 +23,4 @@ The application incorporates several fundamental concepts and features, includin
 12. **Customize Accordian**
 13. **Controlled and un-controlled components**
 14. **Props drilling**
+15. **Cart feature using Redux Store**
