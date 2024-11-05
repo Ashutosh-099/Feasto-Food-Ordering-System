@@ -24,3 +24,4 @@ The application incorporates several fundamental concepts and features, includin
 13. **Controlled and un-controlled components**
 14. **Props drilling**
 15. **Cart feature using Redux Store**
+16. **React Testing:** Testing some React components.
