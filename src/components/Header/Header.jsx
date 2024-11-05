@@ -10,10 +10,10 @@ const Header = () => {
     return (
         <div id="header-container" className="bg-white pt-6 px-4 pb-4 h-20 flex justify-between items-center">
             {/* Logo and Brand Name*/}
-            <a href="/">
+            <a data-testid="logo-link" href="/">
                 <div className="flex items-center">
                     <img src="../../../public/assets/salad.png" alt="logo" className="h-14" />
-                    <span className="text-2xl ml-3 font-bold knewave-regular tracking-widest">
+                    <span data-testid="logo-name" className="text-2xl ml-3 font-bold knewave-regular tracking-widest">
                         Feasto
                     </span>
                 </div>
@@ -32,7 +32,7 @@ const Header = () => {
                     </Link>
                 </nav>
                 {/* Cart */}
-                <Link to="/cart">
+                <Link data-testid="cart-link" to="/cart">
                     <div className="flex item-center px-4 p-2 cursor-pointer bg hover:bg-gray-300/25 active:bg-gray-300">
                         <Badge color="success" badgeContent={count}>
                             <ShoppingCartIcon sx={{ color: '#00a36c', fontSize: 36 }} />
