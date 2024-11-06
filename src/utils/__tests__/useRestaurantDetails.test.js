@@ -1,14 +1,6 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { useRestaurantDetails } from "../useRestaurantDetails";
-
-const mockData = {
-    data: {
-        cards: [
-            { id: 1, name: "Restaurant 1" },
-            { id: 2, name: "Restaurant 2" }
-        ]
-    }
-};
+import RestaurantMockDetails from "./mocks/restaurantDetails.json";
 
 describe("Validate useRestaurantDetails", () => {
 
@@ -18,14 +10,10 @@ describe("Validate useRestaurantDetails", () => {
             return Promise.resolve({
                 ok: true,
                 json: () => {
-                    return Promise.resolve(mockData);
+                    return Promise.resolve(RestaurantMockDetails);
                 }
             })
         });
-    });
-
-    afterAll(() => {
-        jest.clearAllMocks();
     });
 
     it("Should response 200 and return restaurant data", async () => {
@@ -34,8 +22,12 @@ describe("Validate useRestaurantDetails", () => {
         // Wait for data to load and verify that the hook returns the correct data
         // Need to change
         await waitFor(() => {
-            expect(result.current).toEqual(mockData.data.cards);
+            expect(result.current).toEqual(RestaurantMockDetails.data.cards);
         });
+    });
+
+    afterAll(() => {
+        jest.clearAllMocks();
     });
     
 })
