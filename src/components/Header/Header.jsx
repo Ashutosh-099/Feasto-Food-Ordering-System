@@ -12,7 +12,7 @@ const Header = () => {
             {/* Logo and Brand Name*/}
             <a data-testid="logo-link" href="/">
                 <div className="flex items-center">
-                    <img src="../../../public/assets/salad.png" alt="logo" className="h-14" />
+                    <img src="../../../public/assets/food.svg" alt="logo" className="h-14" />
                     <span data-testid="logo-name" className="text-2xl ml-3 font-bold knewave-regular tracking-widest">
                         Feasto
                     </span>
